@@ -51,10 +51,17 @@ class Game {
         el.style.top = y * this.tileDim + 'px'
         return el
     }
+
+    sizeUp() {
+        let map = this.el.querySelector('.game-map')
+        map.style.height = this.map.length * this.tileDim + 'px'
+        map.style.width = this.map[0].length * this.tileDim + 'px'
+    }
 }
 
 function init() {
     let myGame = new Game('.game-container-1')
     myGame.populateMap()
+    myGame.sizeUp()
 }
 init()
