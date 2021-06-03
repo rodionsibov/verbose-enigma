@@ -1,5 +1,6 @@
 let levels = []
-level[0] = {
+
+levels[0] = {
     map: [
         [1, 1, 0, 0, 1],
         [1, 0, 0, 0, 0],
@@ -35,8 +36,10 @@ class Game {
         let tiles = document.querySelector('.tiles')
         for (let y = 0; y < this.map.length; ++y) {
             for (let x = 0; x < this.map[y].length; ++x) {
-                const tileCode = this.map[y][x];
+                let tileCode = this.map[y][x];
                 let tyleType = this.tileTypes[tileCode]
+                let tile = this.createEl(x, y, tileType)
+                tiles.appendChild(tile)
             }
         }
     }
