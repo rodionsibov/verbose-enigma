@@ -1,0 +1,76 @@
+body {
+    text-align: center;
+    transition: .2s ease;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body.success {
+    background-color: #b7f0b7;
+    transition: .2s ease;
+}
+
+.game-container {
+    margin: 0 auto;
+}
+
+.map-and-controls {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.game-map {
+    position: relative;
+    margin: 0 auto;
+}
+
+div.layer, div.layer div {
+    position: absolute;
+}
+
+.tiles div {
+    border: 1px solid gray;
+}
+
+.default .floor {
+    background-color: lightgray;
+}
+
+.default .wall {
+    background-color: skyblue;
+}
+
+.player, .goal {
+    transform: scale(.85);
+    transform-origin: center;
+}
+
+.player {
+    background-color: #90ee90;
+    border: 1px solid green;
+    transition: left .2s linear, top  .2s linear;
+}
+
+.goal {
+    background-color: #ffd700;
+    border: 1px solid #98720b;
+}
+
+.success-msg {
+    opacity: 0;
+    transition: opacity .2s ease;
+    position: absolute;
+    padding: 5px 5xp;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: calc(100% - 8px);
+}
+
+body.success .success-msg {
+    opacity: 1;
+    transition: opacity .2s ease;
+}
