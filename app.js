@@ -18,16 +18,15 @@ levels[0] = {
     },
     theme: 'default'
 }
-
 class Game {
     constructor(el) {
         this.el = document.querySelector(el)
         this.tileTypes = ['floor', 'wall']
         this.tileDim = 32
-        this.map = level.map
-        this.theme = level.theme
-        this.player = { ...level.player }
-        this.goal = { ...level.goal }
+        this.map = levels[0].map
+        this.theme = levels[0].theme
+        this.player = { ...levels[0].player }
+        this.goal = { ...levels[0].goal }
         this.player.el = null
     }
 
@@ -37,7 +36,7 @@ class Game {
         for (let y = 0; y < this.map.length; ++y) {
             for (let x = 0; x < this.map[y].length; ++x) {
                 let tileCode = this.map[y][x];
-                let tyleType = this.tileTypes[tileCode]
+                let tileType = this.tileTypes[tileCode]
                 let tile = this.createEl(x, y, tileType)
                 tiles.appendChild(tile)
             }
@@ -53,3 +52,9 @@ class Game {
         return el
     }
 }
+
+function init() {
+    let myGame = new Game('.game-container-1')
+    myGame.populateMap()
+}
+init()
