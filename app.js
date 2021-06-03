@@ -18,13 +18,26 @@ level[0] = {
     theme: 'default'
 }
 
-function game(id) {
-    this.el = document.querySelector(el)
-    this.tileTypes = ['floor', 'wall']
-    this.tileDim = 32
-    this.map = level.map
-    this.theme = level.theme
-    this.player = { ...level.player }
-    this.goal = { ...level.goal }
-    this.player.el = null
+class Game {
+    constructor(el) {
+        this.el = document.querySelector(el)
+        this.tileTypes = ['floor', 'wall']
+        this.tileDim = 32
+        this.map = level.map
+        this.theme = level.theme
+        this.player = { ...level.player }
+        this.goal = { ...level.goal }
+        this.player.el = null
+    }
+
+    populateMap() {
+        this.el.className = 'game-container ' + this.theme
+        let tiles = document.querySelector('.tiles')
+        for (let y = 0; y < this.map.length; ++y) {
+            for (let x = 0; x < this.map[y].length; ++x) {
+                const tileCode = this.map[y][x];
+                let tyleType = this.tileTypes[tileCode]
+            }
+        }
+    }
 }
