@@ -40,4 +40,13 @@ class Game {
             }
         }
     }
+
+    createEl(x, y, type) {
+        let el = document.createElement('div')
+        el.className = type
+        el.style.width = el.style.height = this.tileDim + 'px'
+        el.style.left = x * this.tileDim + 'px'
+        el.style.top = y * this.tileDim + 'px'
+        return el
+    }
 }
