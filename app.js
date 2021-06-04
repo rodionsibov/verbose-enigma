@@ -68,6 +68,16 @@ class Game {
         layer.appendChild(sprite)
         return sprite
     }
+
+    movePlayer(event){
+
+    }
+
+    keyboardListener(){
+        document.addEventListener('keydown', e => {
+            this.movePlayer(e)
+        })
+    }
 }
 
 function init() {
@@ -77,5 +87,6 @@ function init() {
     myGame.placeSprite('goal')
     let playerSprite = myGame.placeSprite('player')
     myGame.player.el = playerSprite
+    myGame.keyboardListener()
 }
 init()
