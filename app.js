@@ -69,11 +69,29 @@ class Game {
         return sprite
     }
 
-    movePlayer(event){
+    movePlayer(event) {
+        event.preventDefault()
+        if (event.keyCode < 37 || event.keyCode > 40) {
+            return
+        }
+        switch (event.keyCode) {
+            case 37:
+                // move player left
+                break
+            case 38:
+                // move player up
+                break
+            case 39:
+                // move player right
+                break
+            case 40:
+                // move player down
+                break
+        }
 
     }
 
-    keyboardListener(){
+    keyboardListener() {
         document.addEventListener('keydown', e => {
             this.movePlayer(e)
         })
