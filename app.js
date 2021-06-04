@@ -133,10 +133,12 @@ class Game {
 
     moveUp() {
         if (this.player.y === 0) {
+            this.collide()
             return
         }
         let nextTile = this.map[this.player.y - 1][this.player.x]
         if (nextTile === 1) {
+            this.collide()
             return
         }
         this.player.y -= 1
@@ -145,10 +147,12 @@ class Game {
 
     moveDown() {
         if (this.player.y === this.map.length - 1) {
+            this.collide()
             return
         }
         let nextTile = this.map[this.player.y + 1][this.player.x]
         if (nextTile === 1) {
+            this.collide()
             return
         }
         this.player.y += 1
@@ -157,10 +161,12 @@ class Game {
 
     moveLeft() {
         if (this.player.x === 0) {
+            this.collide()
             return
         }
         let nextTile = this.map[this.player.y][this.player.x - 1]
         if (nextTile === 1) {
+            this.collide()
             return
         }
         this.player.x -= 1
@@ -169,10 +175,12 @@ class Game {
 
     moveRight() {
         if (this.player.x === this.map[this.player.y].length - 1) {
+            this.collide()
             return
         }
         let nextTile = this.map[this.player.y][this.player.x + 1]
         if (nextTile === 1) {
+            this.collide()
             return
         }
         this.player.x += 1
@@ -197,6 +205,16 @@ class Game {
             // remove success class from body
             body.className = ''
         }
+    }
+
+    collide() {
+        this.player.el.className += 'collide'
+        let delay = 200
+        let obj = this
+        window.setTimeout(function () {
+            obj.player.el.className = 'player'
+        }, delay)
+        return 0
     }
 
     placeLevel() {

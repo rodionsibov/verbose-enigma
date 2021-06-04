@@ -162,3 +162,22 @@ body.success .success-msg {
     opacity: 1;
     transition: opacity .2s ease;
 }
+
+.player.collide {  
+    animation: wobble 0.2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wobble {
+    0% { transform: scale(0.85) translate(1px, 1px); }
+    10% { transform: scale(0.85) translate(-1px, -2px); }
+    20% { transform: scale(0.85) translate(-3px, 0px); }
+    30% { transform: scale(0.85) translate(3px, 2px); }
+    40% { transform: scale(0.85) translate(1px, -1px);}
+    50% { transform: scale(0.85) translate(-1px, 2px); }
+    60% { transform: scale(0.85) translate(-3px, 1px); }
+    70% { transform: scale(0.85) translate(3px, 1px); }
+    80% { transform: scale(0.85) translate(-1px, -1px); }
+    90% { transform: scale(0.85) translate(1px, 2px); }
+    100% { transform: scale(0.85) translate(1px, -2px);; }
+  }
