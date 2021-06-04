@@ -208,7 +208,7 @@ class Game {
     }
 
     collide() {
-        this.player.el.className += 'collide'
+        this.player.el.className += ' collide'
         let delay = 200
         let obj = this
         window.setTimeout(function () {
