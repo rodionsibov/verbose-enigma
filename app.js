@@ -58,14 +58,14 @@ levels[2] = {
 };
 
 class Game {
-    constructor(el) {
+    constructor(el, level) {
         this.el = document.querySelector(el)
         this.levelIdx = 0
         this.tileTypes = ['floor', 'wall']
-        this.tileDim = 50
-        this.map = levels[0].map
-        this.theme = levels[0].theme
-        this.player = { ...levels[0].player }
+        this.tileDim = 40
+        this.map = level.map
+        this.theme = level.theme
+        this.player = { ...level.player }
         this.goal = { ...level.goal }
         this.player.el = null
     }
@@ -207,11 +207,6 @@ class Game {
         this.player.el = playerSprite
     }
 
-    addListeners() {
-        this.keyboardListener()
-        this.buttonListeners()
-    }
-
     keyboardListener() {
         document.addEventListener('keydown', event => {
             this.movePlayer(event)
@@ -244,10 +239,46 @@ class Game {
         })
     }
 
+    changeLevel() {
+        this.levelIdx++
+        if (this.levelIdx > levels.length - 1) {
+            this.levelIdx = 0
+        }
+        let level = levels[this.levelIdx]
+        this.map = level.map
+        this.theme = level.theme
+        this.player = { ...level.player }
+        this.goal = { ...level.goal }
+
+    }
+
+    addMazeListener() {
+        let map = this.el.querySelector('.game-map')
+        let obj = this
+        map.addEventListener('mousedown', function (e) {
+            if (obj.player.y !== obj.goal.y || obj.player.x !== obj.goal.x) {
+                return
+            }
+            obj.changeLevel()
+            let layers = obj.el.querySelectorAll('.layer')
+            for (const layer of layers) {
+                layer.innerHTML = ''
+            }
+            obj.placeLevel()
+            obj.checkGoal()
+        })
+    }
+
+    addListeners() {
+        this.keyboardListener()
+        this.buttonListeners()
+        this.addMazeListener()
+    }
+
 }
 
 function init() {
-    let myGame = new Game('.game-container-1')
+    let myGame = new Game('.game-container-1', levels[0])
     myGame.placeLevel()
     myGame.addListeners()
 }
