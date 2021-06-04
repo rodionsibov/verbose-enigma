@@ -16,7 +16,73 @@ body.success {
 .map-and-controls {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
+}
+
+.controls {
+    margin-left: 10px;
+    text-align: center;
+}
+
+.controls button {
+    padding: 10px 10px;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #ddd;
+    border: 1px solid #000;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.controls .horiz {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls button::before {
+    content: "";
+    width: 0px;
+    position: absolute;
+}
+
+button.left::before {
+    border-top: 10px solid transparent;
+    border-right: 15px solid #000;
+    border-bottom: 10px solid transparent;
+    left: 10px;
+    top: 9px;
+  }
+  button.right::before {
+    border-top: 10px solid transparent;
+    border-left: 15px solid #000;
+    border-bottom: 10px solid transparent;
+    left: 12px;
+    top: 9px;
+  }
+  button.up::before {
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 15px solid #000;
+    left: 9px;
+    top: 9px;
+  }
+  button.down::before {
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-top: 15px solid #000;
+    left: 9px;
+    top: 12px;
+  }
+
+button.right {
+    margin-left: 5px;
+}
+
+button.left {
+    margin-right: 5px;
 }
 
 p {
@@ -26,7 +92,6 @@ p {
 
 .game-map {
     position: relative;
-    margin: 0 auto;
 }
 
 div.layer, div.layer div {
