@@ -76,19 +76,47 @@ class Game {
         }
         switch (event.keyCode) {
             case 37:
-                // move player left
+                this.moveLeft()
                 break
             case 38:
-                // move player up
+                this.moveUp()
                 break
             case 39:
-                // move player right
+                this.moveRight()
                 break
             case 40:
-                // move player down
+                this.moveDown()
                 break
         }
 
+    }
+
+    moveUp() {
+        this.player.y -= 1
+        this.updateVert()
+    }
+    
+    moveDown() {
+        this.player.y += 1
+        this.updateVert()
+    }
+
+    moveLeft(){
+        this.player.x -= 1
+        this.updateHoriz()
+    }
+
+    moveRight(){
+        this.player.x += 1
+        this.updateHoriz()
+    }
+
+    updateVert() {
+        this.player.el.style.top = this.player.y * this.tileDim + 'px'
+    }
+
+    updateHoriz(){
+        this.player.el.style.left = this.player.x * this.tileDim + 'px'
     }
 
     keyboardListener() {
