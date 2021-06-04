@@ -147,11 +147,25 @@ class Game {
         this.player.el.style.left = this.player.x * this.tileDim + 'px'
     }
 
+    checkGoal() {
+        let body = document.querySelector('body')
+        let txt = this.el.querySelector('.text')
+        if (this.player.y === this.goal.y && this.player.x === this.goal.x) {
+            // add success class to the body
+            body.className = 'success'
+        } else {
+            // remove success class from body
+            body.className = ''
+        }
+    }
+
     keyboardListener() {
-        document.addEventListener('keydown', e => {
-            this.movePlayer(e)
+        document.addEventListener('keydown', event => {
+            this.movePlayer(event)
+            this.checkGoal()
         })
     }
+
 }
 
 function init() {
