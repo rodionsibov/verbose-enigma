@@ -22,7 +22,7 @@ class Game {
     constructor(el) {
         this.el = document.querySelector(el)
         this.tileTypes = ['floor', 'wall']
-        this.tileDim = 32
+        this.tileDim = 50
         this.map = levels[0].map
         this.theme = levels[0].theme
         this.player = { ...levels[0].player }
@@ -166,6 +166,31 @@ class Game {
         })
     }
 
+    buttonListeners() {
+        let up = document.querySelector('.up')
+        let left = document.querySelector('.left')
+        let down = document.querySelector('.down')
+        let right = document.querySelector('.right')
+        let obj = this
+
+        up.addEventListener('mousedown', function() {
+            obj.moveUp()
+            obj.checkGoal()
+        })
+        down.addEventListener('mousedown', function() {
+            obj.moveDown()
+            obj.checkGoal()
+        })
+        left.addEventListener('mousedown', function() {
+            obj.moveLeft()
+            obj.checkGoal()
+        })
+        right.addEventListener('mousedown', function() {
+            obj.moveRight()
+            obj.checkGoal()
+        })
+    }
+
 }
 
 function init() {
@@ -176,5 +201,6 @@ function init() {
     let playerSprite = myGame.placeSprite('player')
     myGame.player.el = playerSprite
     myGame.keyboardListener()
+    myGame.buttonListeners()
 }
 init()

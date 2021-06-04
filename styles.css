@@ -11,17 +11,15 @@ body.success {
 
 .game-container {
     margin: 0 auto;
+    padding: 10px;
 }
 
 .map-and-controls {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.controls {
-    margin-left: 10px;
-    text-align: center;
+    gap: 30px;
+    flex-direction: column;
 }
 
 .controls button {
@@ -86,7 +84,7 @@ button.left {
 }
 
 p {
-    margin: 10px 0;
+    margin: 100px 0 0;
     padding: 0;
 }
 
