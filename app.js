@@ -95,12 +95,20 @@ class Game {
         if (this.player.y === 0) {
             return
         }
+        let nextTile = this.map[this.player.y - 1][this.player.x]
+        if (nextTile === 1) {
+            return
+        }
         this.player.y -= 1
         this.updateVert()
     }
 
     moveDown() {
-        if(this.player.y === this.map.length - 1) {
+        if (this.player.y === this.map.length - 1) {
+            return
+        }
+        let nextTile = this.map[this.player.y + 1][this.player.x]
+        if (nextTile === 1) {
             return
         }
         this.player.y += 1
@@ -111,12 +119,20 @@ class Game {
         if (this.player.x === 0) {
             return
         }
+        let nextTile = this.map[this.player.y][this.player.x - 1]
+        if (nextTile === 1) {
+            return
+        }
         this.player.x -= 1
         this.updateHoriz()
     }
 
     moveRight() {
-        if(this.player.x === this.map[this.player.y].length - 1) {
+        if (this.player.x === this.map[this.player.y].length - 1) {
+            return
+        }
+        let nextTile = this.map[this.player.y][this.player.x + 1]
+        if (nextTile === 1) {
             return
         }
         this.player.x += 1
