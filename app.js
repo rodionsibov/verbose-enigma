@@ -199,6 +199,19 @@ class Game {
         }
     }
 
+    placeLevel() {
+        this.populateMap()
+        this.sizeUp()
+        this.placeSprite('goal')
+        let playerSprite = this.placeSprite('player')
+        this.player.el = playerSprite
+    }
+
+    addListeners() {
+        this.keyboardListener()
+        this.buttonListeners()
+    }
+
     keyboardListener() {
         document.addEventListener('keydown', event => {
             this.movePlayer(event)
@@ -235,12 +248,7 @@ class Game {
 
 function init() {
     let myGame = new Game('.game-container-1')
-    myGame.populateMap()
-    myGame.sizeUp()
-    myGame.placeSprite('goal')
-    let playerSprite = myGame.placeSprite('player')
-    myGame.player.el = playerSprite
-    myGame.keyboardListener()
-    myGame.buttonListeners()
+    myGame.placeLevel()
+    myGame.addListeners()
 }
 init()
