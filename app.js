@@ -92,21 +92,33 @@ class Game {
     }
 
     moveUp() {
+        if (this.player.y === 0) {
+            return
+        }
         this.player.y -= 1
         this.updateVert()
     }
-    
+
     moveDown() {
+        if(this.player.y === this.map.length - 1) {
+            return
+        }
         this.player.y += 1
         this.updateVert()
     }
 
-    moveLeft(){
+    moveLeft() {
+        if (this.player.x === 0) {
+            return
+        }
         this.player.x -= 1
         this.updateHoriz()
     }
 
-    moveRight(){
+    moveRight() {
+        if(this.player.x === this.map[this.player.y].length - 1) {
+            return
+        }
         this.player.x += 1
         this.updateHoriz()
     }
@@ -115,7 +127,7 @@ class Game {
         this.player.el.style.top = this.player.y * this.tileDim + 'px'
     }
 
-    updateHoriz(){
+    updateHoriz() {
         this.player.el.style.left = this.player.x * this.tileDim + 'px'
     }
 
