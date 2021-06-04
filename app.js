@@ -22,7 +22,7 @@ class Game {
     constructor(el) {
         this.el = document.querySelector(el)
         this.tileTypes = ['floor', 'wall']
-        this.tileDim = 60
+        this.tileDim = 32
         this.map = levels[0].map
         this.theme = levels[0].theme
         this.player = { ...levels[0].player }
