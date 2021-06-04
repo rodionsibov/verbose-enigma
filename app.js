@@ -18,15 +18,55 @@ levels[0] = {
     },
     theme: 'default'
 }
+
+levels[1] = {
+    map: [
+        [1, 0, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0, 0],
+        [0, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 0]
+    ],
+    player: {
+        x: 2,
+        y: 4
+    },
+    goal: {
+        x: 4,
+        y: 4
+    },
+    theme: 'grassland'
+};
+
+levels[2] = {
+    map: [
+        [1, 0, 1, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 1, 0],
+        [1, 0, 1, 1, 0, 0, 0],
+        [1, 0, 0, 1, 0, 1, 0],
+        [1, 1, 0, 0, 1, 0, 0]
+    ],
+    player: {
+        x: 2,
+        y: 4
+    },
+    goal: {
+        x: 6,
+        y: 4
+    },
+    theme: 'dungeon'
+};
+
 class Game {
     constructor(el) {
         this.el = document.querySelector(el)
+        this.levelIdx = 0
         this.tileTypes = ['floor', 'wall']
         this.tileDim = 50
         this.map = levels[0].map
         this.theme = levels[0].theme
         this.player = { ...levels[0].player }
-        this.goal = { ...levels[0].goal }
+        this.goal = { ...level.goal }
         this.player.el = null
     }
 
@@ -173,19 +213,19 @@ class Game {
         let right = document.querySelector('.right')
         let obj = this
 
-        up.addEventListener('mousedown', function() {
+        up.addEventListener('mousedown', function () {
             obj.moveUp()
             obj.checkGoal()
         })
-        down.addEventListener('mousedown', function() {
+        down.addEventListener('mousedown', function () {
             obj.moveDown()
             obj.checkGoal()
         })
-        left.addEventListener('mousedown', function() {
+        left.addEventListener('mousedown', function () {
             obj.moveLeft()
             obj.checkGoal()
         })
-        right.addEventListener('mousedown', function() {
+        right.addEventListener('mousedown', function () {
             obj.moveRight()
             obj.checkGoal()
         })

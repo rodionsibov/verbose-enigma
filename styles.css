@@ -108,6 +108,30 @@ div.layer, div.layer div {
     background-color: skyblue;
 }
 
+.grassland .floor {
+    background-color: #7bb76d;
+}
+
+.grassland .wall {
+    background-color: #806d51; 
+}
+
+.grassland .player {
+   background-color: #b2ccec; 
+}
+
+.dungeon .floor {
+    background-color: #a9a9a9; 
+}
+
+.dungeon .wall {
+    background-color: #9c649c; 
+}
+
+.dungeon .player {
+   background-color: #ab1431; 
+}
+
 .player, .goal {
     transform: scale(.85);
     transform-origin: center;
